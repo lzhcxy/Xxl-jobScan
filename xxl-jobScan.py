@@ -3,6 +3,16 @@ import argparse
 import json
 from concurrent.futures import ThreadPoolExecutor
 
+ASCII_ART = r'''
+ ___    ___ ___    ___ ___                         ___  ________  ________     
+|\  \  /  /|\  \  /  /|\  \                       |\  \|\   __  \|\   __  \    
+\ \  \/  / | \  \/  / | \  \      ____________    \ \  \ \  \|\  \ \  \|\ /_   
+ \ \    / / \ \    / / \ \  \    |\____________\__ \ \  \ \  \\\  \ \   __  \  
+  /     \/   /     \/   \ \  \___\|____________|\  \\_\  \ \  \\\  \ \  \|\  \ 
+ /  /\   \  /  /\   \    \ \_______\           \ \________\ \_______\ \_______\
+/__/ /\ __\/__/ /\ __\    \|_______|            \|________|\|_______|\|_______|
+|__|/ \|__||__|/ \|__|                                                         
+'''
 results = []  # 用于存储存在漏洞的目标
 
 def exp(url, proxy=None, shell=None):
@@ -66,6 +76,7 @@ def load_targets(args):
 
 def main():
     """主函数"""
+    print(ASCII_ART)
     parser = argparse.ArgumentParser(description="XXL-Job 默认 token 漏洞检测工具")
     parser.add_argument('ip', nargs='*', help="目标 IP 地址或域名")
     parser.add_argument('-shell', type=str, help="要执行的 shell 命令")
